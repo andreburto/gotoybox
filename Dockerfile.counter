@@ -1,0 +1,19 @@
+FROM gotoybox-gotoybox:latest AS builder
+
+WORKDIR /app/counter
+
+COPY ./src/counter/ /app/counter/
+
+RUN go get . && \
+    go build -o counter && \
+    chmod +x counter
+
+FROM busybox:latest
+
+EXPOSE 8080
+
+WORKDIR /app
+
+COPY --from=builder /app/counter/counter /app/counter
+
+ENTRYPOINT [ "/app/counter" ]

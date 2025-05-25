@@ -1,0 +1,9 @@
+services:
+  # gotoybox:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.go
+  counter:
+    build: 
+      context: .
+      dockerfile: Dockerfile.counter
