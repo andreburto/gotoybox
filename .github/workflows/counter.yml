@@ -12,7 +12,7 @@ jobs:
     container:
       image: golang:1.22
       credentials:
-        username: ${{ github.DOCKER_USENAME }}
+        username: ${{ vars.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_TOKEN }}
     steps:
       - uses: actions/checkout@v3
