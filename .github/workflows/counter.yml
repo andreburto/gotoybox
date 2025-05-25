@@ -19,7 +19,9 @@ jobs:
       - run: |
           cd src/counter
           ls -la
-          go get .
+          go mod tidy
           go build -o counter
           chmod a+x counter
           ./counter 1 20
+        env:
+          GOFLAGS=-buildvcs=false
