@@ -16,13 +16,7 @@ jobs:
         password: ${{ secrets.DOCKER_TOKEN }}
     steps:
       - uses: actions/checkout@v3
-      # - name: Set up Go
-      #   uses: actions/setup-go@v4
-      #   with:
-      #     go-version: 1.22
-      #     cache: true
-      #     b
-      - run: ls -al
-      # - uses: ./.github/templates/test-paths
-      #   with:
-      #     who-to-greet: 'Plan'
+      - run: |
+          cd src/counter
+          go build -o counter
+          ./counter 1 20
