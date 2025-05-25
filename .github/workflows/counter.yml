@@ -9,17 +9,23 @@ on:
 jobs:
   counter:
     runs-on: ubuntu-latest
-    container:
-      image: golang:1.22
-      credentials:
-        username: ${{ vars.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_TOKEN }}
+    # container:
+    #   image: golang:1.22
+    #   credentials:
+    #     username: ${{ vars.DOCKER_USERNAME }}
+    #     password: ${{ secrets.DOCKER_TOKEN }}
     steps:
       - uses: actions/checkout@v3
-      - run: |
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: 1.22
+          cache: true
+          # cache-dependency-path: src/counter/go.sum
+      - name: Build and run counter
+        run: |
           cd src/counter
-          go install
-          # go mod tidy
+          go get .
           go build -o counter
           chmod a+x counter
           ./counter 1 20
