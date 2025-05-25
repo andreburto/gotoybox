@@ -1,4 +1,4 @@
-FROM gotoybox-gotoybox:latest AS builder
+FROM FROM golang:1.22 AS build
 
 WORKDIR /app/counter
 
@@ -14,6 +14,6 @@ EXPOSE 8080
 
 WORKDIR /app
 
-COPY --from=builder /app/counter/counter /app/counter
+COPY --from=build /app/counter/counter /app/counter
 
 ENTRYPOINT [ "/app/counter" ]
