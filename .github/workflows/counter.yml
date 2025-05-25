@@ -24,4 +24,4 @@ jobs:
           chmod a+x counter
           ./counter 1 20
         env:
-          GOFLAGS=-buildvcs=false
+          GOFLAGS: -buildvcs=false
