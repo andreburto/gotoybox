@@ -23,13 +23,13 @@ jobs:
         run: |
           go get .
           go test -v .
-        target: ./src/counter
+        working-directory: ./src/counter
       - name: Build counter
         run: |
           go get .
           go build -o counter
           chmod a+x counter
-        target: ./src/counter
+        working-directory: ./src/counter
       - name: Run counter
         run: ./counter 0 9
-        target: ./src/counter
+        working-directory: ./src/counter
