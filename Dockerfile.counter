@@ -1,19 +1,20 @@
-FROM FROM golang:1.22 AS build
+FROM golang:1.22 AS builder
 
 WORKDIR /app/counter
 
-COPY ./src/counter/ /app/counter/
+COPY ./src/counter /app/counter
 
 RUN go get . && \
+    go test . && \
     go build -o counter && \
-    chmod +x counter
+    chmod a+x counter
 
-FROM busybox:latest
+FROM alpine:latest AS final
 
 EXPOSE 8080
 
 WORKDIR /app
 
-COPY --from=build /app/counter/counter /app/counter
+COPY --from=builder /app/counter/counter /app/counter
 
 ENTRYPOINT [ "/app/counter" ]

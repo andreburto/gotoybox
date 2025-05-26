@@ -24,4 +24,7 @@ docker compose run --remove-orphans counter 1 10
 
 ## Updates
 
+**2025-05-26:** Adding automated tests. 
+Better error handling in the `counter` program.
+
 **2025-05-24:** Initial commit and `counter` program added.

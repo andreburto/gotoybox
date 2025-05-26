@@ -10,16 +10,26 @@ jobs:
   counter:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
           go-version: 1.22
           cache: true
-      - name: Build and run counter
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          branch: master
+      - name: Test counter
         run: |
-          cd src/counter
+          go get .
+          go test -v .
+        target: ./src/counter
+      - name: Build counter
+        run: |
           go get .
           go build -o counter
           chmod a+x counter
-          ./counter 1 20
+        target: ./src/counter
+      - name: Run counter
+        run: ./counter 0 9
+        target: ./src/counter
