@@ -21,13 +21,11 @@ jobs:
           ref: master
       - name: Test counter
         run: |
-          ls -la
           go get .
           go test -v ./...
         working-directory: ./src/counter
       - name: Build counter
         run: |
-          go get .
           go build -o counter
           chmod a+x counter
         working-directory: ./src/counter
