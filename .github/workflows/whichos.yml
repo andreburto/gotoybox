@@ -5,7 +5,6 @@ on:
   push:
     branches:
       - master
-      - whichos
 
 env:
   SRC_PATH: ${{ github.workspace }}/src/whichos
@@ -24,7 +23,6 @@ jobs:
           ref: ${{ github.ref }}
       - name: Build whichos
         run: |
-          go get .
           go build -o whichos
           chmod a+x whichos
       - name: Run whichos
