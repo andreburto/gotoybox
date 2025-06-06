@@ -6,7 +6,7 @@ on:
     branches:
       - whichos
 
-environment:
+env:
   SRC_PATH: ${{ github.workspace }}/src/whichos
 
 jobs:
