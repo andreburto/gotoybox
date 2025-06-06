@@ -1,0 +1,31 @@
+name: GO Toybox WhichOS
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+
+env:
+  SRC_PATH: ${{ github.workspace }}/src/whichos
+
+jobs:
+  whichos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: 1.22
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref }}
+      - name: Build whichos
+        run: |
+          go build -o whichos
+          chmod a+x whichos
+      - name: Run whichos
+        run: ./whichos
+        working-directory: ${{ env.SRC_PATH }}
+        
