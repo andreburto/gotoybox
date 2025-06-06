@@ -25,6 +25,7 @@ jobs:
         run: |
           go build -o whichos
           chmod a+x whichos
+        working-directory: ${{ env.SRC_PATH }}
       - name: Run whichos
         run: ./whichos
         working-directory: ${{ env.SRC_PATH }}

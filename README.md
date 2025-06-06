@@ -22,7 +22,15 @@ docker compose run --remove-orphans counter 10
 docker compose run --remove-orphans counter 1 10
 ```
 
+### whichos
+
+TBD
+
 ## Updates
+
+**2025-06-06:** Added `whichos` program.
+Need a way to reliably identify which OS the program runs on.
+Not putting it in a container.
 
 **2025-05-26:** Adding automated tests. 
 Better error handling in the `counter` program.
