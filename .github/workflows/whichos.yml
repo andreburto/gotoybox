@@ -13,17 +13,16 @@ jobs:
   whichos:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
           go-version: 1.22
-          cache: true
-      - name: Build and run counter
+      - uses: actions/checkout@v3
+      - name: Build and run whichos
         run: |
-          cd ${{ env.SRC_PATH }}
           go get .
           go build -o whichos
           chmod a+x whichos
           ./whichos
+        working-directory: ${{ env.SRC_PATH }}
         
