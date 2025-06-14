@@ -28,6 +28,10 @@ TBD
 
 ## Updates
 
+**2025-06-14:** Added `waiter` service, which is just sample server that servers a web page and has one endpoint.
+Used Copilot to generate the HTML, but added a few tweaks.
+This is the POC on how to extend [vid2mp3](https://github.com/andreburto/vid2mp3) to work with a bookmarklet.
+
 **2025-06-06:** Added `whichos` program.
 Need a way to reliably identify which OS the program runs on.
 Not putting it in a container.

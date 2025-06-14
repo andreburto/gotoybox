@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTTP Request Buttons</title>
+</head>
+<body>
+  <h1>HTTP Request Buttons</h1>
+  <button id="postButton">Post</button>
+  <button id="getButton">Get</button>
+  <button id="deleteButton">Delete</button>
+
+  <script>
+    // Define the global constant for the endpoint URL
+    const endPointUrl = '/api/v1/waiter';
+
+    // Function to make an HTTP request
+    function makeRequest(method) {
+      fetch(endPointUrl, { method })
+        .then(response => response.text())
+        .then(data => console.log(`${method} Response:`, data))
+        .catch(error => console.error(`${method} Error:`, error));
+    }
+
+    // Add event listeners to the buttons
+    document.getElementById('postButton').addEventListener('click', () => makeRequest('POST'));
+    document.getElementById('getButton').addEventListener('click', () => makeRequest('GET'));
+    document.getElementById('deleteButton').addEventListener('click', () => makeRequest('DELETE'));
+
+    // Timer to make a GET request every 30 seconds
+    setInterval(() => makeRequest('GET'), 30000);
+
+    makeRequest('GET');
+  </script>
+</body>
+</html>
