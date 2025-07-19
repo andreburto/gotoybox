@@ -22,11 +22,27 @@ docker compose run --remove-orphans counter 10
 docker compose run --remove-orphans counter 1 10
 ```
 
+### math
+
+Simple API to test out [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) and JSON parsing.
+
+### people
+
+Importing modules from subdirectories.
+Learning how to organize code.
+
+### waiter
+
+Simple API to test out using multuple methods with one endpoint.
+Planning to use this in another project.
+
 ### whichos
 
-TBD
+Simple thing to test which OS is being used. 
 
 ## Updates
+
+**2025-07-19:** Added `math` service, which let's me play around with the Fetch API and JSON parsing libraries.
 
 **2025-06-14:** Added `waiter` service, which is just sample server that servers a web page and has one endpoint.
 Used Copilot to generate the HTML, but added a few tweaks.
