@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Math</title>
+</head>
+<body>
+  <form>
+    <p>First Number:</p><input type="text" name="field1" placeholder="Enter first number">
+    <p>Second Number:</p><input type="text" name="field2" placeholder="Enter second number">
+    <p>
+      <button type="button" onclick="doAdd()">Add</button>
+      <button type="button" onclick="doSubtract()">Subtract</button>
+    </p>
+  </form>
+  <div>Result: <span id="result">number</span></div>
+  <script>
+    // Define the global constant for the endpoint URL
+    const ADD_ENDPOINT_URL = '/api/v1/add';
+    const SUBTRACT_ENDPOINT_URL = '/api/v1/subtract';
+
+    // Function to make an HTTP request
+    function doAdd() {
+      const field1 = document.querySelector('input[name="field1"]').value;
+      const field2 = document.querySelector('input[name="field2"]').value;
+      const payload = { numbers: [parseInt(field1), parseInt(field2)] };
+      doMath(ADD_ENDPOINT_URL, payload);
+    }
+
+    function doSubtract() {
+      const field1 = document.querySelector('input[name="field1"]').value;
+      const field2 = document.querySelector('input[name="field2"]').value;
+      const payload = { numbers1: parseInt(field1), numbers2: parseInt(field2) };
+      doMath(SUBTRACT_ENDPOINT_URL, payload);
+    }
+
+    function doMath(endPointUrl, payload) {
+      fetch(endPointUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      })
+        .then(response => response.json())
+        .then(data => document.getElementById('result').innerText = data.result)
+        .catch(error => console.error(`POST Error:`, error));
+    }
+
+    document.getElementById('result').innerText = '0';
+  </script>
+</body>
+</html>
