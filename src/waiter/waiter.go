@@ -30,33 +30,44 @@ func waiterHandler(w http.ResponseWriter, r *http.Request) {
 	// Set the content type to JSON
 	w.Header().Set("Content-Type", "application/json")
 
-	// Check if the request method is GET
-	if r.Method != http.MethodGet {
-		if r.Method == http.MethodPost {
-			// Attempt to create the file
-			file, err := os.Create(CheckFile)
-			if err != nil {
-				var error_msg string = fmt.Sprintf("Error creating file %s: %v", CheckFile, err)
-				// log.Println(error_msg)
-				http.Error(w, error_msg, http.StatusInternalServerError)
-				return
-			}
-			defer file.Close()
-		} else if r.Method == http.MethodDelete {
-			// Attempt to delete the file
-			err := os.Remove(CheckFile)
-			if err != nil {
-				var error_msg string = fmt.Sprintf("Error deleting file %s: %v", CheckFile, err)
-				// log.Println(error_msg)
-				http.Error(w, error_msg, http.StatusInternalServerError)
-				return
-			}
-		} else {
-			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
-			return
+	// Check if the request method is one of the allowed methods
+	allowedMethods := []string{http.MethodGet, http.MethodPost, http.MethodDelete}
+	isAllowed := false
+	for _, method := range allowedMethods {
+		if r.Method == method {
+			isAllowed = true
+			break
 		}
 	}
 
+	if !isAllowed {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	if r.Method == http.MethodPost {
+		// Attempt to create the file
+		file, err := os.Create(CheckFile)
+		if err != nil {
+			var error_msg string = fmt.Sprintf("Error creating file %s: %v", CheckFile, err)
+			// log.Println(error_msg)
+			http.Error(w, error_msg, http.StatusInternalServerError)
+			return
+		}
+		defer file.Close()
+	}
+	
+	if r.Method == http.MethodDelete {
+		// Attempt to delete the file
+		err := os.Remove(CheckFile)
+		if err != nil {
+			var error_msg string = fmt.Sprintf("Error deleting file %s: %v", CheckFile, err)
+			// log.Println(error_msg)
+			http.Error(w, error_msg, http.StatusInternalServerError)
+			return
+		}
+	}
+	
 	// Check if the file exists
 	if CheckFileExists() {
 		fileExists = "yes"
