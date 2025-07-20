@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - master
+    paths:
+      - src/math/**
 
 env:
   SRC_PATH: ${{ github.workspace }}/src/math
