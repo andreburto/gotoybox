@@ -42,6 +42,8 @@ Simple thing to test which OS is being used.
 
 ## Updates
 
+**2025-07-10:** Added test and GHA test for `math`.
+
 **2025-07-19:** Added `math` service, which let's me play around with the Fetch API and JSON parsing libraries.
 
 **2025-06-14:** Added `waiter` service, which is just sample server that servers a web page and has one endpoint.

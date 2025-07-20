@@ -10,7 +10,7 @@ env:
   SRC_PATH: ${{ github.workspace }}/src/math
 
 jobs:
-  whichos:
+  math:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Go
@@ -31,4 +31,3 @@ jobs:
           go build -o math
           chmod a+x math
         working-directory: ${{ env.SRC_PATH }}
-        
