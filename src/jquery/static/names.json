@@ -1,0 +1,24 @@
+{
+    "names": [
+        { "name": "Leia Organa", "species": "Human", "planet": "Alderaan" },
+        { "name": "Chewbacca", "species": "Wookiee", "planet": "Kashyyyk" },
+        { "name": "Luke Skywalker", "species": "Human", "planet": "Tatooine" },
+        { "name": "Han Solo", "species": "Human", "planet": "Corellia" },
+        { "name": "Yoda", "species": "Yoda's species", "planet": "Unknown" },
+        { "name": "R2-D2", "species": "Droid", "planet": "Naboo" },
+        { "name": "C-3PO", "species": "Droid", "planet": "Tatooine" },
+        { "name": "Darth Vader", "species": "Human", "planet": "Tatooine" },
+        { "name": "Padmé Amidala", "species": "Human", "planet": "Naboo" },
+        { "name": "Obi-Wan Kenobi", "species": "Human", "planet": "Stewjon" },
+        { "name": "Lando Calrissian", "species": "Human", "planet": "Socorro" },
+        { "name": "Rey", "species": "Human", "planet": "Jakku" },
+        { "name": "Finn", "species": "Human", "planet": "Unknown" },
+        { "name": "Poe Dameron", "species": "Human", "planet": "Yavin IV" },
+        { "name": "Kylo Ren", "species": "Human", "planet": "Chandrila" },
+        { "name": "Mace Windu", "species": "Human", "planet": "Haruun Kal" },
+        { "name": "Qui-Gon Jinn", "species": "Human", "planet": "Coruscant" },
+        { "name": "Jabba the Hutt", "species": "Hutt", "planet": "Nal Hutta" },
+        { "name": "Ahsoka Tano", "species": "Togruta", "planet": "Shili" },
+        { "name": "Boba Fett", "species": "Human (clone)", "planet": "Kamino" }
+    ]
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    <div id="content">
+        <p>This is a simple HTML page served by Go.</p>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: '/names.json',
+                type: 'GET',
+                contentType: 'application/json',
+                success: function(response) {
+                    // Display the names in the content div
+                    var content = '<ul>';
+                    response.names.forEach(function(character) {
+                        content += '<li>' + character.name + ' (' + character.species + ') - ' + character.planet + '</li>';
+                    });
+                    content += '</ul>';
+                    $('#content').html(content);
+                    $('#content li:even').css('background-color', '#f2f2f2');
+                    $('#content li:odd').css('background-color', '#e6e6e6');
+                },
+                error: function(xhr, status, error) {
+                    alert('Error: ' + error);
+                }
+            });
+
+            $('#content').on('click', 'li', function() {
+                alert('You clicked on: ' + $(this).text());
+            });
+        });
+    </script>
+</body>
+</html>
