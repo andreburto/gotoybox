@@ -22,6 +22,10 @@ docker compose run --remove-orphans counter 10
 docker compose run --remove-orphans counter 1 10
 ```
 
+### drive
+
+Working on a generic backend "file system," akin to [PHPDrive](https://github.com/andreburto/PHPDrive), that will let me manage a simple set of files from web UI.
+
 ### jquery
 
 My [jQuery](https://jquery.com/) toy box.
@@ -50,6 +54,10 @@ Planning to use this in another project.
 Simple thing to test which OS is being used. 
 
 ## Updates
+
+**2025-07-27:** Started working on `drive`.
+It needs metter error handling before it's useful.
+The plan is to merge it with the `jquery` project, to make experimenting with UIs easier.
 
 **2025-07-26:** Added the `pointer` project, for obvious reasons.
 Playing more with `jquery` and it's AJAX-ery.
