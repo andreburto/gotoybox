@@ -31,6 +31,10 @@ Simple API to test out [fetch](https://developer.mozilla.org/en-US/docs/Web/API/
 Importing modules from subdirectories.
 Learning how to organize code.
 
+### pointer
+
+Did you know [Go has pointers](https://go.dev/tour/moretypes/1)?
+
 ### waiter
 
 Simple API to test out using multuple methods with one endpoint.
