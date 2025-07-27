@@ -51,6 +51,9 @@ Simple thing to test which OS is being used.
 
 ## Updates
 
+**2025-07-26:** Added the `pointer` project, for obvious reasons.
+Playing more with `jquery` and it's AJAX-ery.
+
 **2025-07-20:** Added the `jquery` project.
 It's been too long since I played with jQuery, and I think its simplicity blends well with Go.
 
