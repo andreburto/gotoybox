@@ -22,6 +22,11 @@ docker compose run --remove-orphans counter 10
 docker compose run --remove-orphans counter 1 10
 ```
 
+### jquery
+
+My [jQuery](https://jquery.com/) toy box.
+Could probably do this with nginx, but Go is a little more flexible for the API experiments I want to do.
+
 ### math
 
 Simple API to test out [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) and JSON parsing.
@@ -46,7 +51,10 @@ Simple thing to test which OS is being used.
 
 ## Updates
 
-**2025-07-10:** Added test and GHA test for `math`.
+**2025-07-20:** Added the `jquery` project.
+It's been too long since I played with jQuery, and I think its simplicity blends well with Go.
+
+**2025-07-20:** Added test and GHA test for `math`.
 
 **2025-07-19:** Added `math` service, which let's me play around with the Fetch API and JSON parsing libraries.
 
