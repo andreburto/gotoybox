@@ -86,6 +86,8 @@ Simple thing to test which OS is being used.
 
 **2026-11-14:** Added `tcl1` and `tcl2` experiments with modernc.org/tk9.0. Added `innit` project for initialization experiments.
 
+**2026-11-08:** Added `ticker` project for experimenting with periodic tasks.
+
 **2025-07-27:** Started working on `drive`.
 It needs metter error handling before it's useful.
 The plan is to merge it with the `jquery` project, to make experimenting with UIs easier.
