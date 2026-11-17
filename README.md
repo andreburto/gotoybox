@@ -44,6 +44,35 @@ Learning how to organize code.
 
 Did you know [Go has pointers](https://go.dev/tour/moretypes/1)?
 
+### tcl1
+
+A minimal desktop counter built with [modernc.org/tk9.0](https://modernc.org/tk9.0), a Go wrapper around Tcl/Tk.
+The window has an entry showing the current value, with `-` and `+` buttons to decrement and increment it.
+Run it with:
+
+```
+cd src/tcl1
+go run .
+```
+
+### tcl2
+
+Another [modernc.org/tk9.0](https://modernc.org/tk9.0) experiment.
+It loads `sam.png` into a canvas, sizes the window to match the image, and overlays a "Close" button centered at the bottom that exits the app.
+The image is loaded by relative path, so run it from its directory:
+
+```
+cd src/tcl2
+go run .
+```
+
+The layout test is an integration test that needs a display, so it's behind the `tk_integration` build tag:
+
+```
+cd src/tcl2
+go test -tags tk_integration ./...
+```
+
 ### waiter
 
 Simple API to test out using multuple methods with one endpoint.
@@ -54,6 +83,8 @@ Planning to use this in another project.
 Simple thing to test which OS is being used. 
 
 ## Updates
+
+**2026-11-14:** Added `tcl1` and `tcl2` experiments with modernc.org/tk9.0. Added `innit` project for initialization experiments.
 
 **2025-07-27:** Started working on `drive`.
 It needs metter error handling before it's useful.
